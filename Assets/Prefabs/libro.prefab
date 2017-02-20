@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3362828}
   - 23: {fileID: 2355504}
   - 65: {fileID: 6515612}
+  - 114: {fileID: 11447278}
   m_Layer: 0
   m_Name: libro
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199876}
   m_LocalRotation: {x: -0.5195194, y: -0.479687, z: -0.47968706, w: 0.5195193}
-  m_LocalPosition: {x: 29.3, y: 4.97, z: 81}
+  m_LocalPosition: {x: -6.3099995, y: 1, z: -0.66000366}
   m_LocalScale: {x: 67.869934, y: 17.952192, z: 100}
   m_LocalEulerAnglesHint: {x: -90, y: -85.434296, z: 0}
   m_Children: []
@@ -70,12 +71,24 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199876}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.020000005, y: 0.020000013, z: 0.02}
   m_Center: {x: 0.0000000018626454, y: 0, z: 1.1996053e-17}
+--- !u!114 &11447278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ef6bdef84e1942b62e33f596cba08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 199876}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
