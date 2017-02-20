@@ -86,6 +86,11 @@ public class HunterMovementHandler : MonoBehaviour {
                 GameObject bulletHole = Instantiate(BulletHole, hit.point + (hit.normal * 0.01f),
                     Quaternion.FromToRotation(Vector3.up, hit.normal)) as GameObject;
                 //BulletHole.transform.parent = hit.transform;
+                if(hit.transform.tag=="PropPlayer")
+                {
+                    HealthScript healt = hit.transform.gameObject.GetComponent<HealthScript>();
+                    healt.TakeDemage(21);
+                }
                 Destroy(bulletHole, 3);
             }
             nextBullet = Random.Range(0.09f, 0.2f);

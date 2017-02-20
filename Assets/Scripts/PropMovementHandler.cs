@@ -4,6 +4,9 @@ using System.Collections;
 public class PropMovementHandler : MonoBehaviour {
 
     Rigidbody rigidbody;
+    //GUI
+    GUIStyle guiStyle;
+    public Texture2D HeartTexture;
     //MOVE
     public float MoveSpeed=10;
     public float Gravity=9.8f;
@@ -22,6 +25,9 @@ public class PropMovementHandler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        guiStyle = new GUIStyle();
+        guiStyle.normal.textColor = Color.black;
+        guiStyle.fontSize = 20;
 	}
 	
 	// Update is called once per frame
@@ -81,6 +87,12 @@ public class PropMovementHandler : MonoBehaviour {
     void OnCollisionLeave(Collision collision)
     {
         jumping = true;
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 30, 30), HeartTexture, guiStyle);
+        GUI.Label(new Rect(10+30, 10, 100, 20), GetComponent<HealthScript>().Health.ToString(), guiStyle);
     }
     
 }
