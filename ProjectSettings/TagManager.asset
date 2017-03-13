@@ -7,6 +7,7 @@ TagManager:
   - PropPlayer
   - HunterPlayer
   - Prop
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX

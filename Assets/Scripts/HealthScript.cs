@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class HealthScript : MonoBehaviour {
-
+public class HealthScript : NetworkBehaviour
+{
+    [SyncVar]
     public float Health;
+
 	// Use this for initialization
 	void Start () {
         Health = 100;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class PropMovementHandler : MonoBehaviour {
 
@@ -22,9 +23,16 @@ public class PropMovementHandler : MonoBehaviour {
     public float horizontalAngle = 270.0f;
     public float verticalAngle = 0.0f;
 
+    public GameObject Camera;
+
     // Use this for initialization
     void Start () {
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        if (!gameObject.GetComponent<NetworkIdentity>().isLocalPlayer)
+        {
+            transform.FindChild("Camera").gameObject.SetActive(false);
+            //return;
+        }
         guiStyle = new GUIStyle();
         guiStyle.normal.textColor = Color.black;
         guiStyle.fontSize = 20;
@@ -33,6 +41,8 @@ public class PropMovementHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!gameObject.GetComponent<NetworkIdentity>().isLocalPlayer)
+            return;
         Rotate();
         Move();
     }
@@ -45,7 +55,7 @@ public class PropMovementHandler : MonoBehaviour {
         //Set moveDirection to the vertical axis (up and down keys) * speed
         moveDirection = new Vector3(MoveSpeed * Input.GetAxis("Horizontal"), /*(jumping)?0:*/-Gravity, MoveSpeed * Input.GetAxis("Vertical"));
         //Transform the vector3 to local space
-        Transform camera = Camera.main.transform;
+        Transform camera = Camera.transform;
         camera.eulerAngles = new Vector3(0f, camera.eulerAngles.y,
             camera.eulerAngles.z);
         moveDirection = camera.TransformDirection(moveDirection);
@@ -66,10 +76,10 @@ public class PropMovementHandler : MonoBehaviour {
         horizontalAngle -= speedH * Input.GetAxis("Mouse X");
         verticalAngle -= speedV * Input.GetAxis("Mouse Y");
         //print("Angle: " + verticalAngle + ", sin: " + Mathf.Sin(verticalAngle));
-        Camera.main.transform.localPosition = new Vector3(Mathf.Cos((horizontalAngle * Mathf.PI) / 180) * 2.5f,
+        Camera.transform.localPosition = new Vector3(Mathf.Cos((horizontalAngle * Mathf.PI) / 180) * 2.5f,
             2f,//Mathf.Sin((verticalAngle * Mathf.PI) / 180),
             Mathf.Sin((horizontalAngle * Mathf.PI) / 180) * 2.5f);
-        Camera.main.transform.eulerAngles = new Vector3(20f, 270 - horizontalAngle, 0.0f);
+        Camera.transform.eulerAngles = new Vector3(20f, 270 - horizontalAngle, 0.0f);
         //Camera.main.transform.eulerAngles = RotatePointAroundPivot(transform.position, 
         //  gameObject.transform.FindChild("shape").position, new Vector3(pitch, yaw, 0.0f));
     }

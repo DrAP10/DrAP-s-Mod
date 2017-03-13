@@ -26,6 +26,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469174}
+  - 114: {fileID: 11442802}
+  - 114: {fileID: 11473664}
   m_Layer: 0
   m_Name: BulletHole
   m_TagString: Untagged
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.188098, y: 6.616448, z: 24.351562}
+  m_LocalPosition: {x: 27.572636, y: 0.0000003963741, z: 38.96798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -105,6 +107,58 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11442802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 27
+    i1: 170
+    i2: 66
+    i3: 6
+    i4: 72
+    i5: 207
+    i6: 222
+    i7: 100
+    i8: 232
+    i9: 67
+    i10: 219
+    i11: 32
+    i12: 8
+    i13: 185
+    i14: 6
+    i15: 63
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11473664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
